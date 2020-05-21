@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>wangzhen</Authors>
+    <Description>Oracle数据库操作工厂</Description>
+    <RepositoryUrl>https://github.com/yuezhuosuigu-cs/SuperDB.OracleSQL.git</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Oracle.ManagedDataAccess" Version="19.7.0" />
+    <PackageReference Include="SuperDB" Version="1.0.0" />
+    <PackageReference Include="SuperDB.Config" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
