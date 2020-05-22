@@ -7,17 +7,16 @@ using System.Data;
 
 namespace SuperDB.MySQL
 {
-    public class OracleSQLFactory : IDBFactory
+    public class OracleSQLFactory : DBFactory
     {
         private IDbConnection _Connection;
-        private IDbTransaction _Transaction;
 
         public static OracleSQLFactory Create()
         {
             return new OracleSQLFactory();
         }
 
-        public IDbConnection Connection
+        public override IDbConnection Connection
         {
             get
             {
@@ -31,37 +30,6 @@ namespace SuperDB.MySQL
                 }
                 return _Connection;
             }
-        }
-
-        public IDbTransaction Transaction
-        {
-            get
-            {
-                if (_Transaction == default)
-                {
-                    _Transaction = Connection.BeginTransaction();
-                }
-                return _Transaction;
-            }
-        }
-
-        public bool Commit()
-        {
-            Transaction.Commit();
-            return true;
-        }
-
-        public void Dispose()
-        {
-            _Connection?.Dispose();
-            _Connection = default;
-            _Transaction = default;
-        }
-
-        public bool Rollback()
-        {
-            Transaction.Rollback();
-            return false;
         }
     }
 }
